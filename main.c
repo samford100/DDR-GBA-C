@@ -30,7 +30,7 @@ int main()
 	int i = 0;
 	//create all arrows
 	
-
+	//remove and use function w/ malloc
     ARROW cLeftArrow;
 		cLeftArrow.row = 10;
 		cLeftArrow.col = 10;
@@ -51,6 +51,20 @@ int main()
 		cDownArrow.col = 77;
 		cDownArrow.size = 20;
 		cDownArrow.color = YELLOW;
+
+	struct ARROW* createArrow(int row, int col, int size, u16 color) {
+		struct ARROW arrow* = (struct ARROW*) malloc(sizeof(ARROW));
+		arrow->row = row;
+		arrow->col = col;
+		arrow->size = size;
+		arrow->color = color;
+	}
+
+	void destroyArrow(ARROW* arrow) {
+		free(arrow);
+	}
+
+
     //ARROW cRightArrow;
     //ARROW cUpArrow;
     //ARROW cDownArrow;
